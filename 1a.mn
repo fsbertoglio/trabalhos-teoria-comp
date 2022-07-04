@@ -1,0 +1,52 @@
+operation clear(A){
+ 1: if zero A then goto 0 else goto 2
+ 2: do dec A goto 1
+}
+
+// A:=A+B (soma destrutiva)
+operation somaDes(A,B){
+  1: if zero B then goto 0 else goto 2
+  2: do dec B goto 3
+  3: do inc A goto 1
+}
+
+// A:=A+B (soma não-destrutiva)
+operation soma(A,B,C){
+  1: if zero B then goto 5 else goto 2
+  2: do dec B goto 3
+  3: do inc A goto 4
+  4: do inc C goto 1
+  5: if zero C then goto 0 else goto 6
+  6: do dec C goto 7
+  7: do inc B goto 5
+}
+
+operation load(A,B){
+  1: do clear(A) goto 2
+  2: do somaDes(A,B) goto 0
+}
+
+// Programa principal
+main {
+ 1: if zero X then goto 13 else goto 2 
+ 2: do inc A goto 3
+ 3: do inc B goto 4
+ 4: do inc C goto 5
+ 5: do dec X goto 6
+ 6: if zero X then goto 7 else goto 2
+
+// agora A, B e C tem o valor de entrada
+// então faz a multiplicação de AxB = x^2
+
+ 7: if zero C then goto 11 else goto 8
+ 8: do soma(A,B,Aux) goto 9
+ 9: do dec C goto 7
+
+// nesse ponto A = X^2 
+// precisamos somar B à A, ja que B ainda tem o valor de X
+
+10: do somaDes(A,B) goto 11
+// dai transferimos para Y e adiciona 1
+11: do load(Y,A) goto 12
+12: do inc Y goto 0
+} 
