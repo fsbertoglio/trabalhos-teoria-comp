@@ -28,7 +28,7 @@ operation load(A,B){
 
 // Programa principal
 main {
- 1: if zero X then goto 13 else goto 2 
+ 1: if zero X then goto 12 else goto 2 
  2: do inc A goto 3
  3: do inc B goto 4
  4: do inc C goto 5
