@@ -1,0 +1,24 @@
+// A:=A+B (soma destrutiva)
+operation somaDes(A,B){
+  1: if zero B then goto 0 else goto 2
+  2: do dec B goto 3
+  3: do inc A goto 1
+}
+
+main {
+ 1: do somaDes(C,X) goto 2
+ 2: if zero C then goto 14 else goto 3
+ 3: do dec C goto 4
+ 4: do inc X goto 5
+ 5: if zero C then goto 0 else goto 6
+ 6: do dec C goto 7
+ 7: do inc X goto 8
+ 8: if zero C then goto 0 else goto 9
+ 9: do dec C goto 10
+ 10: do inc X  goto 11
+ 11: if zero C then goto 0 else goto 12
+ 12: do dec C goto 13
+ 13: do inc X  goto 2
+ // aloca '0' em Y
+ 14: do inc Y goto 0
+}
